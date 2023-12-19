@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <h1>PDF Search</h1>
-      <UploadInterface />
+      <UploadInterface updateFileList={ updateFileList } />
       <FileList fileList={ fileList }/>
     </div>
   );

@@ -5,14 +5,15 @@ import './UploadInterface.css'
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 
-function UploadFile() {
+function UploadFile( props ) {
   const [filename, setFilename] = useState('')
   const [files, setFiles] = useState([{}])
-  const [status, setstatus] = useState('')
+  // const [status, setstatus] = useState('')
 
   let api = 'http://localhost:8000/api'
+  const {updateFileList } = props
 
-  const saveFile = () =>{
+  const uploadFile = () =>{
     console.log('Save Button clicked!')
 
     let formData = new FormData();
@@ -28,12 +29,13 @@ function UploadFile() {
     axios.post(api + '/files/', formData, axiosConfig)
     .then(
       response =>{
-        console.log(response)
-        setstatus('File Uploaded Successfully')
+        // console.log(response)
+        // setstatus('File Uploaded Successfully')
       }
     ).catch(error =>{
       console.log(error)
     })
+    .then(updateFileList)
   }
 
   return (
@@ -44,8 +46,8 @@ function UploadFile() {
           <label htmlFor="exampleFormControlFile1" className="float-left">Browse</label>
           <input type="file" onChange={e => setFilename(e.target.files[0])} className="form-control" />
         </div>
-        <button type="button" onClick={saveFile} className="btn btn-primary float-left mt-2">Submit</button>
-        {status ? <h2>{status}</h2>:null}
+        <button type="button" onClick={uploadFile} className="btn btn-primary float-left mt-2">Upload</button>
+        {/* {status ? <h2>{status}</h2>:null} */}
       </form>
     </div>
   )
