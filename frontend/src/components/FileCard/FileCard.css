@@ -1,0 +1,16 @@
+/* FILE CARD CSS */
+
+.file-card{
+  display: flex;
+  flex-direction: row;
+}
+
+.file-card-component {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid blue;
+}
+
+.file-icon {
+  width: 80px;
+}

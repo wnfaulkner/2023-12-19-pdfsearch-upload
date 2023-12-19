@@ -1,5 +1,7 @@
 // UPLOAD INTERFACE COMPONENT
 
+import './UploadInterface.css'
+
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 
@@ -35,7 +37,7 @@ function UploadFile() {
   }
 
   return (
-    <div className="container-fluid">
+    <div id="upload-interface">
       <p>Upload a File</p>
       <form >
         <div className="form-group">
