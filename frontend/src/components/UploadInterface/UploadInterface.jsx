@@ -36,6 +36,7 @@ function UploadFile() {
 
   return (
     <div className="container-fluid">
+      <p>Upload a File</p>
       <form >
         <div className="form-group">
           <label htmlFor="exampleFormControlFile1" className="float-left">Browse</label>
