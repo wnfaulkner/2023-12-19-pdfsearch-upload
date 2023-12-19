@@ -1,11 +1,11 @@
 # SERIALIZERS
 
 from rest_framework import serializers
-from .models import Files
+from .models import File
 
 
-class FilesSerializer(serializers.ModelSerializer):
+class FileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Files
+        model = File
         fields = ['id','pdf']
         

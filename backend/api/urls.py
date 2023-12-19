@@ -4,10 +4,10 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import FilesViewSet
+from .views import FileViewSet
 
 api = DefaultRouter()
-api.register('files', FilesViewSet, basename='files')
+api.register('files', FileViewSet, basename='files')
 
 urlpatterns = [
     path('api/', include(api.urls)),

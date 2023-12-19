@@ -7,13 +7,13 @@ import axios from 'axios'
 
 function UploadFile( props ) {
   const [filename, setFilename] = useState('')
-  const [files, setFiles] = useState([{}])
+  const [file, setFile] = useState([{}])
   // const [status, setstatus] = useState('')
 
   let api = 'http://localhost:8000/api'
   const {updateFileList } = props
 
-  const uploadFile = () =>{
+  const uploadFile = () => {
     console.log('Save Button clicked!')
 
     let formData = new FormData();
@@ -44,7 +44,7 @@ function UploadFile( props ) {
       <form >
         <div className="form-group">
           <label htmlFor="exampleFormControlFile1" className="float-left">Browse</label>
-          <input type="file" onChange={e => setFilename(e.target.files[0])} className="form-control" />
+          <input type="file" onChange={e => setFilename(e.target.file[0])} className="form-control" />
         </div>
         <button type="button" onClick={uploadFile} className="btn btn-primary float-left mt-2">Upload</button>
         {/* {status ? <h2>{status}</h2>:null} */}
