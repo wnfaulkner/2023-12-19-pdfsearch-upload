@@ -1,5 +1,8 @@
 # API VIEWS
 
+import os
+import sys
+import django
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -9,26 +12,22 @@ from rest_framework import viewsets
 from .models import File
 from .serializers import FileSerializer
 
+# Add the project directory to the Python path
+sys.path.append('home/wnf/code/2023-12-19-pdfsearch-upload/backend')
+
+# Set the Django settings module
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
+django.setup()
+
+from utils.pdf_extract_text import extract_text
+
 class FileViewSet(viewsets.ModelViewSet):
-    queryset = File.objects.all().order_by('id')
-    serializer_class = FileSerializer
+	queryset = File.objects.all().order_by('id')
+	serializer_class = FileSerializer
+	print("FILE VIEW SET CALLED!")
 
-# @csrf_exempt
-# def parse_pdf(request, file_id):
-#     try:
-#         file_obj = File.objects.get(id=file_id)
-#         pdf_path = file_obj.pdf.path
-
-#         with fitz.open(pdf_path) as pdf_document:
-#             text = ""
-#             for page_num in range(pdf_document.page_count):
-#                 page = pdf_document[page_num]
-#                 text += page.get_text()
-
-#             # Update the File object with extracted text
-#             file_obj.pdf_text = text
-#             file_obj.save()
-
-#             return JsonResponse({'success': True, 'message': 'PDF parsed successfully.'})
-#     except Exception as e:
-#         return JsonResponse({'success': False, 'message': str(e)})
+def store_pdf_text(request, file_id):
+	print("EXTRACT TEXT CALLED!")
+	file_obj = File.objects.get(id=file_id)
+	file_obj.pdf_text = extract_text(file_obj)
+	file_obj.save()

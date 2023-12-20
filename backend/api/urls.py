@@ -4,15 +4,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import FileViewSet #, parse_pdf
+from .views import FileViewSet, store_pdf_text
 
 api = DefaultRouter()
 api.register('files', FileViewSet, basename='files')
-# api.register('parse-pdf/<int:file_id>/', parse_pdf, basename='parse-pdf')
-
-api = DefaultRouter()
-api.register('files', FileViewSet, basename='files')
+api.register('files/<int:file_id>/', store_pdf_text, basename='store-pdf-text')
 
 urlpatterns = [
-    path('api/', include(api.urls)),
+  path('api/', include(api.urls)),
 ]

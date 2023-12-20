@@ -14,7 +14,7 @@ function UploadFile( props ) {
   const {updateFileList } = props
 
   const uploadFile = () => {
-    console.log('Save Button clicked!')
+    // console.log('Save Button clicked!')
 
     let formData = new FormData();
     formData.append("pdf", filename)
@@ -24,7 +24,7 @@ function UploadFile( props ) {
         'Content-Type': 'multpart/form-data'
       }
     }
-    console.log(formData)
+    // console.log(formData)
 
     axios.post(api + '/files/', formData, axiosConfig)
     .then(
