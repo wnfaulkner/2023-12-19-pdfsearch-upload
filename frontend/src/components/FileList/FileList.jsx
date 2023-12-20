@@ -21,7 +21,7 @@ export default function FileList({ fileList }) {
       {fileList.map((file, idx) => (
         <FileCard file={file} key={idx} openPdfViewer={ openPdfViewer } />
       ))}
-      {selectedPdf && <PdfViewer pdf={selectedPdf} />}
+      {selectedPdf && <PdfViewer pdfUrl={selectedPdf} />}
     </div>
   )
 }

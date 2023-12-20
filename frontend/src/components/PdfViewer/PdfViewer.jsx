@@ -3,28 +3,27 @@
 import './PdfViewer.css';
 
 import React, { useState } from 'react';
-import { Document, Page } from 'react-pdf';
+import { Document, Page, pdfjs } from 'react-pdf';
 
-export default function PdfViewer({ pdf }) {
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   'pdfjs-dist/build/pdf.worker.min.js',
+//   import.meta.url,
+// ).toString();
 
-  const [loading, setLoading] = useState(true);
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
-  const handleLoadSuccess = () => {
-    console.log('PDF loaded successfully');
-    setLoading(false);
-  };
-
-  const handleLoadError = (error) => {
-    console.error('Error loading PDF:', error);
-    setLoading(false);
-  };
-
+export default function PdfViewer({ pdfUrl }) {
+  
   return (
-    <div className="pdf-viewer">
-      {loading && <p>Loading...</p>}
-      <Document file={pdf} onLoadSuccess={handleLoadSuccess} onLoadError={handleLoadError}>
+    <div>
+      <Document
+        file={pdfUrl}
+        onLoadSuccess={({ numPages }) => console.log(`Document loaded with ${numPages} pages.`)}
+        onLoadError={(error) => console.error('Error occurred while loading document:', error.message)}
+      >
         <Page pageNumber={1} />
       </Document>
     </div>
+
   );
-}
+};

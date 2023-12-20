@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-pdf-js": "^5.1.0"
+  }
+}
