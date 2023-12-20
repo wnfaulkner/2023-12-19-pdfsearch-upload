@@ -14,16 +14,37 @@ pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.vers
 
 export default function PdfViewer({ pdfUrl }) {
   
+  const [pageNumber, setPageNumber] = useState(1);
+  const [numPages, setNumPages] = useState(null);
+
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
+
+  const goToPrevPage = () => {
+    setPageNumber((prevPageNumber) => Math.max(prevPageNumber - 1, 1));
+  };
+
+  const goToNextPage = () => {
+    setPageNumber((prevPageNumber) => Math.min(prevPageNumber + 1, numPages));
+  };
+
   return (
-    <div>
-      <Document
-        file={pdfUrl}
-        onLoadSuccess={({ numPages }) => console.log(`Document loaded with ${numPages} pages.`)}
-        onLoadError={(error) => console.error('Error occurred while loading document:', error.message)}
-      >
-        <Page pageNumber={1} />
+    <div id="pdf-viewer">
+      <div>
+        <button onClick={goToPrevPage} disabled={pageNumber <= 1}>
+          Previous
+        </button>
+        <button onClick={goToNextPage} disabled={pageNumber >= numPages}>
+          Next
+        </button>
+      </div>
+      <p>
+        Page {pageNumber} of {numPages}
+      </p>
+      <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
+        <Page pageNumber={pageNumber} />
       </Document>
     </div>
-
   );
 };

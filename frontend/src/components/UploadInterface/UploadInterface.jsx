@@ -44,7 +44,7 @@ function UploadFile( props ) {
       <form >
         <div className="form-group">
           <label htmlFor="exampleFormControlFile1" className="float-left">Browse</label>
-          <input type="file" onChange={e => setFilename(e.target.file[0])} className="form-control" />
+          <input type="file" onChange={e => setFilename(e.target.files[0])} className="form-control" />
         </div>
         <button type="button" onClick={uploadFile} className="btn btn-primary float-left mt-2">Upload</button>
         {/* {status ? <h2>{status}</h2>:null} */}
