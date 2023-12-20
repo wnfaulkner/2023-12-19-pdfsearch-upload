@@ -1,23 +1,43 @@
 # UTIL: EXTRACT TEXT FROM PDFS
 
-# import fitz
+import os
+import sys
+import django
 from PyPDF2 import PdfReader
 
-# from .models import File
+# Add the project directory to the Python path
+sys.path.append('home/wnf/code/2023-12-19-pdfsearch-upload/backend')
 
-file_path = "../media/store/pdfs/Clemens_1986_Of_Asteroids_and_Dinosaurs_044HVAC.pdf"
+# Set the Django settings module
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
+django.setup()
+
+#Import the File model
+from api.models import File
+
+# file_path = "../media/store/pdfs/Clemens_1986_Of_Asteroids_and_Dinosaurs.pdf"
 file_id = 1
 
-# file_obj = File.objects.get(id=file_id)
+file_obj = File.objects.get(id=file_id)
+print(file_obj)
 
-doc = PdfReader(file_path)
+doc = PdfReader(file_obj.pdf)
 
 for page in doc.pages:
   extracted_text = page.extract_text()
   print(extracted_text)
-  
-# page = doc.pages[0]
-# print(page.extract_text())
+
+
+
+
+
+# import fitz
+
+# doc = fitz.open(file_path)
+# print(doc.page_count)
+# doc = fitz.open_document(file_path)
+
+
 
 
 #         pdf_path = file_obj.pdf.path
@@ -32,12 +52,6 @@ for page in doc.pages:
 #             file_obj.pdf_text = text
 #             file_obj.save()
 
-
-
-
-
-
-# doc = fitz.open_document(file_path)
 
 # for page in doc:
 #     output = page.get_text("blocks")
