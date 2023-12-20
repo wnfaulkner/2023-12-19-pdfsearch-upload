@@ -7,5 +7,5 @@ from .models import File
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = ['id','pdf']
+        fields = ['id','pdf', 'pdf_text']
         

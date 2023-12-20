@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# ![Banner Photo](./organize_cropped.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Author: [William Faulkner](https://github.com/wnfaulkner)
 
-## Available Scripts
+---
+## **Project Idea and Description**
 
-In the project directory, you can run:
+PDF Search helps users store, organize, and search their pdf documents.
 
-### `npm start`
+[Click Here to Check out the App Now](https://www.duckduckgo.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## **Technology Stack**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database: PostgreSQL
 
-### `npm test`
+Back-End: Django
+- Communicate with React front-end: Django REST Framework
+- Doc Indexing & Metadata Extraction: Apache Tika
+- Doc Searching: Apache Solr
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Front-End: React with Milligram CSS
 
-### `npm run build`
+---
+## **User Stories**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- AAU, I want to be able to import PDFs files
+- AAU, I want the ability to view a list of all of my uploaded PDFs.
+- AAU, I want the ability to open/read/view individual PDFs.
+- AAU, I want the ability to search the full text content and metadata of my PDFs simultaneously.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Stretch Goals include implementing further user stories, such as:
+- AAU, I want the ability to batch import PDFs
+- AAU, I want to be able to create, view, edit, and delete tags (including metadata tags like 'author').
+- AAU, I want the ability to associate tags with documents.
+- AAU, I want the ability to filter my list of PDFs to those associated with a particular tag.
+- AAU, I want the ability to search both full and filtered lists of my PDFs for exact text matches in both PDF metadata and text content.
+- AAU, I want the ability to nest my tags within a hierarchy with ‘parent’ and ‘child’ tags.
+- AAU, I want the ability to tag selected text within documents.
+- AAU, I want the search results prioritized, with higher priority going to documents where the search term appears in the metadata and documents where the search term appears more frequently in the document text.
+- AAU, I want my search results to include a ‘search snippet,’ i.e. preview(s) of the text surrounding the search term within the doc.
+- AAU, I want my search results to live update with each new character typed into the search query.
+- AAU, I want results to appear snappily (< 0.25 sec) even when I am searching 500+ PDFs.
 
-### `npm run eject`
+---
+## **ERD**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src="./pdfsearch/public/images/ERD.png" alt="ERD" width="350"/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
+## **Routing Chart**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="./pdfsearch/public/images/RESTful Routing Chart.png" alt="RESTful Routing Chart" width="700"/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
+## **Wireframes**
 
-## Learn More
+![Landing Page Wireframe](./pdfsearch/public/images/wireframes/Slide1.PNG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![User Home Wireframe](./pdfsearch/public/images/wireframes/Slide2.PNG)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Import/Index Wireframe](./pdfsearch/public/images/wireframes/Slide3.PNG)
 
-### Code Splitting
+![Search Wireframe (no query)](./pdfsearch/public/images/wireframes/Slide4.PNG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Search Wireframe (with query)](./pdfsearch/public/images/wireframes/Slide5.PNG)
