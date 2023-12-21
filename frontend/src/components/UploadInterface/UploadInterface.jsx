@@ -17,7 +17,9 @@ function UploadFile( props ) {
     // console.log('Save Button clicked!')
 
     let formData = new FormData();
+    // console.log(formData)
     formData.append("pdf", filename)
+    // console.log(formData)
 
     let axiosConfig = {
       headers: {
@@ -26,10 +28,10 @@ function UploadFile( props ) {
     }
     // console.log(formData)
 
-    axios.post(api + '/files/', formData, axiosConfig)
+    axios.post(api + '/files/upload/', formData, axiosConfig)
     .then(
       response =>{
-        // console.log(response)
+        console.log(response)
         // setstatus('File Uploaded Successfully')
       }
     ).catch(error =>{
