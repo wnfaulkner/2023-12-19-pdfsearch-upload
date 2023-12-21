@@ -14,7 +14,7 @@ Database: SQLite3 (Django default)
 
 Back-End: Django, Django REST Framework (DRF)
 
-Front-End: React
+Front-End: React (JS)
 
 ---
 ## **User Stories**
@@ -45,33 +45,31 @@ Front-End: React
 ---
 ## **ERD**
 
-<img src="./pdfsearch/public/images/ERD.png" alt="ERD" width="350"/>
+<img src="./images/ERD V2.png" alt="ERD" width="350"/>
 
 ---
 ## **Routing Chart**
 
-<img src="./pdfsearch/public/images/RESTful Routing Chart.png" alt="RESTful Routing Chart" width="700"/>
+<img src="./images/RESTful Routing Chart_v2.png" alt="RESTful Routing Chart" width="700"/>
 
 ---
-## **Wireframes**
+## **Screenshots**
 
-![Landing Page Wireframe](./pdfsearch/public/images/wireframes/Slide1.PNG)
+Landing Page (No PDFs)
+<img src="./images/Screenshot1.png" alt="Landing Page (No PDFs)" width="700"/>
 
-![User Home Wireframe](./pdfsearch/public/images/wireframes/Slide2.PNG)
+Landing Page (with PDFs)
+<img src="./images/Screenshot2.png" alt="Landing Page (with PDFs)" width="700"/>
 
-![Import/Index Wireframe](./pdfsearch/public/images/wireframes/Slide3.PNG)
-
-![Search Wireframe (no query)](./pdfsearch/public/images/wireframes/Slide4.PNG)
-
-![Search Wireframe (with query)](./pdfsearch/public/images/wireframes/Slide5.PNG)
-
+Display View of Single PDF
+<img src="./images/Screenshot2.png" alt="Display View of Single PDF" width="700"/>
 
 ---
 ## **Approach, Process, & Hurdles**
 
-At my current level of coding skills, implementing a new technology on my own is possible, but difficult enough that the pace of developing any given functionality feels truly glacial. I first attempted to follow tutorials to set up the React-DRF-Django stack and ensure that I could send user input (just text to start with) from the interface to the database. Having succeeded at that, I attempted to follow tutorials to set up file upload, but the minor differences between the tutorials and my setup were enough that I could not make it work. I started an entirely new repo and followed one of the upload tutorials exactly, which got me to file upload functionality. I was then able to implement viewing pdfs in the repo. 
+I first attempted to follow tutorials to set up the React-DRF-Django stack and ensure that I could send user input (just text to start with) from the interface to the database. Having succeeded at that, I attempted to follow tutorials to set up file upload, but the minor differences between the tutorials and my setup were enough that I could not make it work. I started an entirely new repo and followed one of the upload tutorials exactly, which got me to file upload functionality. I was then able to implement viewing pdfs in the repo. 
 
-With only one day of project work time left, I decided to attempt adding functionality to extract the text from a pdf and store the extracted text in the database. For this step, I could find no tutorials that covered even a significant piece of the setup process.
+With only one day of project work time left, I decided to attempt adding functionality to extract the text from a pdf and store the extracted text in the database. For this step, I could find no tutorials that covered even a significant piece of the setup process. It remains unfinished.
 
 Hurdles:
 - Documentation for many languages/packages is often still only partially readable/accessible at my current level of understanding. And missing 25% of the meaning/vocab can mean that you get 0% of the learning you would need to successfully implement.
